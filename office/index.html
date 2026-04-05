@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>@devcoelli - HOME OFFICE</title>
+  <!-- Importa Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.5s, color 0.5s;
+    }
+    h1 { font-size: 2.5em; margin-bottom: 10px; }
+    #datetime { font-size: 1.2em; margin-bottom: 30px; }
+    .search-box { margin-bottom: 40px; }
+    input[type="text"] {
+      padding: 12px; width: 320px; font-size: 1em;
+      border-radius: 8px; border: 1px solid #ccc;
+    }
+    button {
+      padding: 12px 20px; font-size: 1em; margin-left: 10px;
+      background-color: #0078d4; color: white; border: none;
+      border-radius: 8px; cursor: pointer;
+    }
+    button:hover { background-color: #005a9e; }
+    .shortcuts {
+      display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;
+    }
+    .shortcut {
+      background-color: rgba(0,0,0,0.05);
+      padding: 15px 25px; border-radius: 10px;
+      text-decoration: none; color: inherit; font-weight: bold;
+      transition: background-color 0.3s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .shortcut:hover { background-color: rgba(0,0,0,0.15); }
+    .light { background-color: #f0f4f8; color: #2c3e50; }
+    .dark { background-color: #000000; color: #f5f5f5; }
+  </style>
+</head>
+<body>
+  <h1>Minha Home</h1>
+  <div id="datetime"></div>
+
+  <div class="search-box">
+   
+     <a href="https://arena.ai/pt/" target="_blank" class="shortcut">
+      <i class="fa-solid fa-briefcase"></i> Principais modelos de IA 
+    </a>
+  </div>
+
+  <div class="shortcuts">
+    <a href="https://outlook.live.com" target="_blank" class="shortcut">
+      <i class="fa-solid fa-envelope"></i> Outlook
+    </a>
+    <a href="https://onedrive.live.com" target="_blank" class="shortcut">
+      <i class="fa-solid fa-cloud"></i> OneDrive
+    </a>
+    <a href="https://gitlab.com/users/coelli/projects" target="_blank" class="shortcut">
+      <i class="fa-solid fa-people-group"></i> Gitlab
+    </a>
+    <a href="https://github.com/devcoelli" target="_blank" class="shortcut">
+      <i class="fa-solid fa-people-group"></i> Github
+    </a>
+    <a href="https://www.youtube.com/feed/subscriptions" target="_blank" class="shortcut">
+      <i class="fa-brands fa-youtube"></i> YouTube
+    </a>
+    <a href="https://m365.cloud.microsoft/apps/" target="_blank" class="shortcut">
+      <i class="fa-solid fa-briefcase"></i> Office
+    </a>
+    </div><p></p>
+     <div class="shortcuts">
+       <a href="https://entra.microsoft.com/#home" target="_blank" class="shortcut">
+      <i class="fa-solid fa-briefcase"></i> ENTRA ID
+    </a>
+     <a href="https://gitlab.com/coelli/livros" target="_blank" class="shortcut">
+      <i class="fa-solid fa-briefcase"></i> Biblioteca
+    </a>
+    <a href="https://gitlab.com/coelli/codigos/" target="_blank" class="shortcut">
+      <i class="fa-solid fa-briefcase"></i> Códigos
+    </a>
+    
+  </div>
+
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const date = now.toLocaleDateString('pt-BR', options);
+      const time = now.toLocaleTimeString('pt-BR');
+      document.getElementById('datetime').innerText = `Hoje é ${date}, ${time}`;
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+
+    function setTheme() {
+      const hour = new Date().getHours();
+      if (hour >= 6 && hour < 18) {
+        document.body.classList.add("light");
+        document.body.classList.remove("dark");
+      } else {
+        document.body.classList.add("dark");
+        document.body.classList.remove("light");
+      }
+    }
+    setTheme();
+    setInterval(setTheme, 60000);
+
+    function searchCopilot() {
+      const query = document.getElementById('searchInput').value;
+      if (query.trim() !== "") {
+        window.open(`https://copilot.microsoft.com/?q=${encodeURIComponent(query)}`, '_blank');
+      }
+    }
+  </script>
+</body>
+</html>
