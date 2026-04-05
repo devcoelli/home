@@ -50,6 +50,6 @@
 
 ## 🌐 Acesse o porfólio
 
-<a href="https://coelli.gitlab.io/" target="_blank">
+<a href="https://devcoelli.github.io/home" target="_blank">
   <img align="center" src="https://img.shields.io/badge/gitlab-0077B5?style=for-the-badge&logo=dio&logoColor=white"/>
 </a>
